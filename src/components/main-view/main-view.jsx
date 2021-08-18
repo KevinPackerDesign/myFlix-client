@@ -12,20 +12,23 @@ export class MainView extends React.Component {
           Title: "Inception",
           Description:
             "About a group that enters your dreams to steal information",
-          ImagePath: "...",
+          ImagePath:
+            "https://m.media-amazon.com/images/I/51p3oAsXNmL._AC_SS450_.jpg",
         },
         {
           _id: 2,
           Title: "The Shawshank Redemption",
           Description: "Story of a con that breaks out of prison",
-          ImagePath: "...",
+          ImagePath:
+            "https://m.media-amazon.com/images/I/71AzwgLT2WL._AC_SY679_.jpg",
         },
         {
           _id: 3,
           Title: "Gladiator",
           Description:
             "About a Roman general that gets exiled after his family is killed.",
-          ImagePath: "...",
+          ImagePath:
+            "https://m.media-amazon.com/images/I/71sj8Yt20qL._AC_SY679_.jpg",
         },
       ],
       selectedMovie: null,
@@ -41,7 +44,7 @@ export class MainView extends React.Component {
   render() {
     const { movies, selectedMovie } = this.state;
 
-    if (selectedMovie) return <MovieView movie={selectedMovie} />;
+    // if (selectedMovie) return <MovieView movie={selectedMovie} />;
 
     if (movies.length === 0)
       return <div className="main-view">The list is empty</div>;
@@ -60,7 +63,7 @@ export class MainView extends React.Component {
             <MovieCard
               key={movie._id}
               movie={movie}
-              onMovieclick={(movie) => {
+              onMovieClick={(movie) => {
                 this.setSelectedMovie(movie);
               }}
             />

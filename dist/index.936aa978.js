@@ -21868,19 +21868,19 @@ class MainView extends _reactDefault.default.Component {
                     _id: 1,
                     Title: "Inception",
                     Description: "About a group that enters your dreams to steal information",
-                    ImagePath: "..."
+                    ImagePath: "https://m.media-amazon.com/images/I/51p3oAsXNmL._AC_SS450_.jpg"
                 },
                 {
                     _id: 2,
                     Title: "The Shawshank Redemption",
                     Description: "Story of a con that breaks out of prison",
-                    ImagePath: "..."
+                    ImagePath: "https://m.media-amazon.com/images/I/71AzwgLT2WL._AC_SY679_.jpg"
                 },
                 {
                     _id: 3,
                     Title: "Gladiator",
                     Description: "About a Roman general that gets exiled after his family is killed.",
-                    ImagePath: "..."
+                    ImagePath: "https://m.media-amazon.com/images/I/71sj8Yt20qL._AC_SY679_.jpg"
                 }, 
             ],
             selectedMovie: null
@@ -21893,19 +21893,12 @@ class MainView extends _reactDefault.default.Component {
     }
     render() {
         const { movies , selectedMovie  } = this.state;
-        if (selectedMovie) return(/*#__PURE__*/ _reactDefault.default.createElement(_movieView.MovieView, {
-            movie: selectedMovie,
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 44
-            },
-            __self: this
-        }));
+        // if (selectedMovie) return <MovieView movie={selectedMovie} />;
         if (movies.length === 0) return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
             className: "main-view",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 47
+                lineNumber: 50
             },
             __self: this
         }, "The list is empty"));
@@ -21913,7 +21906,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 50
+                lineNumber: 53
             },
             __self: this
         }, selectedMovie ? /*#__PURE__*/ _reactDefault.default.createElement(_movieView.MovieView, {
@@ -21923,18 +21916,18 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 52
+                lineNumber: 55
             },
             __self: this
         }) : movies.map((movie)=>/*#__PURE__*/ _reactDefault.default.createElement(_movieCard.MovieCard, {
                 key: movie._id,
                 movie: movie,
-                onMovieclick: (movie1)=>{
+                onMovieClick: (movie1)=>{
                     this.setSelectedMovie(movie1);
                 },
                 __source: {
                     fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                    lineNumber: 60
+                    lineNumber: 63
                 },
                 __self: this
             })
@@ -22147,73 +22140,73 @@ parcelHelpers.export(exports, "Movieview", ()=>Movieview
 );
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-class Movieview extends React.Component {
+class Movieview extends _reactDefault.default.Component {
     render() {
         const { movie , onBackClick  } = this.props;
-        return(/*#__PURE__*/ React.createElement("div", {
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
             className: "movie-view",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 8
             },
             __self: this
-        }, /*#__PURE__*/ React.createElement("div", {
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
             className: "movie-poster",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 9
             },
             __self: this
-        }, /*#__PURE__*/ React.createElement("img", {
+        }, /*#__PURE__*/ _reactDefault.default.createElement("img", {
             src: movie.ImagePath,
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 10
             },
             __self: this
-        })), /*#__PURE__*/ React.createElement("div", {
+        })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
             className: "movie-title",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 12
             },
             __self: this
-        }, /*#__PURE__*/ React.createElement("span", {
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
             className: "label",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 13
             },
             __self: this
-        }, "Title: "), /*#__PURE__*/ React.createElement("span", {
+        }, "Title: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
             className: "value",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 14
             },
             __self: this
-        }, movie.Title)), /*#__PURE__*/ React.createElement("div", {
+        }, movie.Title)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
             className: "movie-description",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 16
             },
             __self: this
-        }, /*#__PURE__*/ React.createElement("span", {
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
             classname: "label",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 17
             },
             __self: this
-        }, "Description: "), /*#__PURE__*/ React.createElement("span", {
+        }, "Description: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
             className: "value",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 18
             },
             __self: this
-        }, movie.Description)), /*#__PURE__*/ React.createElement("button", {
+        }, movie.Description)), /*#__PURE__*/ _reactDefault.default.createElement("button", {
             onClick: ()=>{
                 onBackClick(null);
             },
