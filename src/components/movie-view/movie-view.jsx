@@ -1,6 +1,6 @@
 import React from "react";
 
-export class Movieview extends React.Component {
+export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
 
@@ -14,7 +14,7 @@ export class Movieview extends React.Component {
           <span className="value">{movie.Title}</span>
         </div>
         <div className="movie-description">
-          <span classname="label">Description: </span>
+          <span className="label">Description: </span>
           <span className="value">{movie.Description}</span>
         </div>
         <button
