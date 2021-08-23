@@ -1,10 +1,7 @@
 import React from "react";
 import axios from "axios";
-
-import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
-import { RegistrationView } from "../registration-view/registration-view";
 
 export class MainView extends React.Component {
   constructor() {
@@ -12,7 +9,6 @@ export class MainView extends React.Component {
     this.state = {
       movies: [],
       selectedMovie: null,
-      user: null,
     };
   }
 
@@ -35,23 +31,10 @@ export class MainView extends React.Component {
     });
   }
 
-  onRegistration() {
-    this.setState({
-      user,
-    });
-  }
-
-  onLoggedIn(user) {
-    this.setState({
-      user,
-    });
-  }
-
   render() {
-    const { movies, selectedMovie, user } = this.state;
+    const { movies, selectedMovie } = this.state;
 
-    if (!user)
-      return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+    // if (selectedMovie) return <MovieView movie={selectedMovie} />;
 
     if (movies.length === 0) return <div className="main-view" />;
 
@@ -81,3 +64,26 @@ export class MainView extends React.Component {
 }
 
 // to add something like a button into this you can wrap it all in another <div> or use <React.Fragment> or use the short hand<> </>
+// {
+//   _id: 1,
+//   Title: "Inception",
+//   Description:
+//     "About a group that enters your dreams to steal information",
+//   ImagePath:
+//     "https://m.media-amazon.com/images/I/51p3oAsXNmL._AC_SS450_.jpg",
+// },
+// {
+//   _id: 2,
+//   Title: "The Shawshank Redemption",
+//   Description: "Story of a con that breaks out of prison",
+//   ImagePath:
+//     "https://m.media-amazon.com/images/I/71AzwgLT2WL._AC_SY679_.jpg",
+// },
+// {
+//   _id: 3,
+//   Title: "Gladiator",
+//   Description:
+//     "About a Roman general that gets exiled after his family is killed.",
+//   ImagePath:
+//     "https://m.media-amazon.com/images/I/71sj8Yt20qL._AC_SY679_.jpg",
+// },
