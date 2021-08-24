@@ -21886,9 +21886,9 @@ class MainView extends _reactDefault.default.Component {
             selectedMovie: newSelectedMovie
         });
     }
-    onRegistration() {
+    onRegistration(register) {
         this.setState({
-            user
+            register
         });
     }
     onLoggedIn(user) {
@@ -21897,8 +21897,8 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     render() {
-        const { movies , selectedMovie , user  } = this.state;
-        if (!user) return(/*#__PURE__*/ _reactDefault.default.createElement(_loginView.LoginView, {
+        const { movies , selectedMovie , user , register  } = this.state;
+        if (!user && register) return(/*#__PURE__*/ _reactDefault.default.createElement(_loginView.LoginView, {
             onLoggedIn: (user1)=>this.onLoggedIn(user1)
             ,
             __source: {
@@ -21907,11 +21907,20 @@ class MainView extends _reactDefault.default.Component {
             },
             __self: this
         }));
+        if (!user && !register) return(/*#__PURE__*/ _reactDefault.default.createElement(_registrationView.RegistrationView, {
+            onRegistration: (register1)=>this.onRegistration(register1)
+            ,
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
+                lineNumber: 58
+            },
+            __self: this
+        }));
         if (movies.length === 0) return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
             className: "main-view",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 56
+                lineNumber: 63
             },
             __self: this
         }));
@@ -21919,7 +21928,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 59
+                lineNumber: 66
             },
             __self: this
         }, selectedMovie ? /*#__PURE__*/ _reactDefault.default.createElement(_movieView.MovieView, {
@@ -21929,7 +21938,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 61
+                lineNumber: 68
             },
             __self: this
         }) : movies.map((movie)=>/*#__PURE__*/ _reactDefault.default.createElement(_movieCard.MovieCard, {
@@ -21940,7 +21949,7 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                    lineNumber: 69
+                    lineNumber: 76
                 },
                 __self: this
             })
@@ -24307,26 +24316,27 @@ parcelHelpers.export(exports, "LoginView", ()=>LoginView
 );
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _s = $RefreshSig$();
 function LoginView(props) {
     _s();
     const [username, setUsername] = _react.useState("");
     const [password, setPassword] = _react.useState("");
-    const handleSubmit = ()=>{
+    const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(username, password);
+        props.onLoggedIn(username);
     };
-    // props.onLoggedIn(username);
     return(/*#__PURE__*/ _reactDefault.default.createElement("form", {
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 15
+            lineNumber: 14
         },
         __self: this
-    }, /*#__PURE__*/ _reactDefault.default.createElement("lable", {
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 16
+            lineNumber: 15
         },
         __self: this
     }, "Username:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
@@ -24336,13 +24346,13 @@ function LoginView(props) {
         ,
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 18
+            lineNumber: 17
         },
         __self: this
-    })), /*#__PURE__*/ _reactDefault.default.createElement("lable", {
+    })), /*#__PURE__*/ _reactDefault.default.createElement("label", {
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 24
+            lineNumber: 23
         },
         __self: this
     }, "Password:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
@@ -24352,7 +24362,7 @@ function LoginView(props) {
         ,
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 26
+            lineNumber: 25
         },
         __self: this
     })), /*#__PURE__*/ _reactDefault.default.createElement("button", {
@@ -24360,13 +24370,16 @@ function LoginView(props) {
         onClick: handleSubmit,
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 32
+            lineNumber: 31
         },
         __self: this
     }, "Submit")));
 }
 _s(LoginView, "Lrw7JeD9zj6OUWhT/IH4OIvPKEk=");
 _c = LoginView;
+LoginView.propTypes = {
+    onLoggedIn: _propTypesDefault.default.func.isRequired
+};
 var _c;
 $RefreshReg$(_c, "LoginView");
 
@@ -24375,7 +24388,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"7IoRK","../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3QRYi"}],"xpZ5s":[function(require,module,exports) {
+},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"7IoRK","../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3QRYi","prop-types":"4dfy5"}],"xpZ5s":[function(require,module,exports) {
 var helpers = require("../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -24395,73 +24408,38 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _s = $RefreshSig$();
 function RegistrationView(props) {
     _s();
-    const [firstname, setFirstName] = _react.useState("");
-    const [lastname, setLastName] = _react.useState("");
     const [username, setUsername] = _react.useState("");
     const [password, setPassword] = _react.useState("");
     const [email, setEmail] = _react.useState("");
     const [birthday, setBirthday] = _react.useState("");
-    const { onLoggedIn  } = props;
+    const { onRegistration  } = props;
     const handleSubmit = (e)=>{
         e.preventDefault();
         _axiosDefault.default.post("https://kpmyflix.herokuapp.com/users", {
-            FirstName: firstname,
-            LastName: lastname,
             Username: username,
             Password: password,
             Email: email,
             Birthday: birthday
-        }).the((response)=>{
-            const data = respose.data;
+        }).then((response)=>{
+            const data = response.data;
             console.log(data);
             alert("registration successfull! Please Login.");
         }).catch((e1)=>{
             alert("This user is already registered.");
             console.log("error registering the user");
         });
+        onRegistration(username);
     };
     return(/*#__PURE__*/ _reactDefault.default.createElement("form", {
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 38
+            lineNumber: 35
         },
         __self: this
-    }, /*#__PURE__*/ _reactDefault.default.createElement("lable", {
+    }, /*#__PURE__*/ _reactDefault.default.createElement("label", {
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 39
-        },
-        __self: this
-    }, "First Name:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
-        type: "text",
-        value: name,
-        onChange: (e)=>setFirstName(e.target.value)
-        ,
-        __source: {
-            fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 41
-        },
-        __self: this
-    })), /*#__PURE__*/ _reactDefault.default.createElement("lable", {
-        __source: {
-            fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 47
-        },
-        __self: this
-    }, "Last Name:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
-        type: "text",
-        value: name,
-        onChange: (e)=>setLastName(e.target.value)
-        ,
-        __source: {
-            fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 49
-        },
-        __self: this
-    })), /*#__PURE__*/ _reactDefault.default.createElement("lable", {
-        __source: {
-            fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 55
+            lineNumber: 36
         },
         __self: this
     }, "Username:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
@@ -24471,13 +24449,13 @@ function RegistrationView(props) {
         ,
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 57
+            lineNumber: 38
         },
         __self: this
-    })), /*#__PURE__*/ _reactDefault.default.createElement("lable", {
+    })), /*#__PURE__*/ _reactDefault.default.createElement("label", {
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 63
+            lineNumber: 44
         },
         __self: this
     }, "Password:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
@@ -24487,39 +24465,39 @@ function RegistrationView(props) {
         ,
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 65
+            lineNumber: 46
         },
         __self: this
-    })), /*#__PURE__*/ _reactDefault.default.createElement("lable", {
+    })), /*#__PURE__*/ _reactDefault.default.createElement("label", {
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 71
+            lineNumber: 52
         },
         __self: this
     }, "Email:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
-        type: "text",
+        type: "email",
         value: email,
         onChange: (e)=>setEmail(e.target.value)
         ,
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 73
+            lineNumber: 54
         },
         __self: this
-    })), /*#__PURE__*/ _reactDefault.default.createElement("lable", {
+    })), /*#__PURE__*/ _reactDefault.default.createElement("label", {
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 79
+            lineNumber: 60
         },
         __self: this
     }, "Birthday:", /*#__PURE__*/ _reactDefault.default.createElement("input", {
         type: "text",
-        value: birth,
+        value: birthday,
         onChange: (e)=>setBirthday(e.target.value)
         ,
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 81
+            lineNumber: 62
         },
         __self: this
     })), /*#__PURE__*/ _reactDefault.default.createElement("button", {
@@ -24527,22 +24505,15 @@ function RegistrationView(props) {
         onClick: handleSubmit,
         __source: {
             fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 87
+            lineNumber: 68
         },
         __self: this
     }, "Submit")));
 }
-_s(RegistrationView, "mI9JfqsSl4FY9hm+7EEJ+vjYRkk=");
+_s(RegistrationView, "jsOQN3GC2XlBG9ITlzCdpyJOnso=");
 _c = RegistrationView;
-Registraionview.proptypes = {
-    resister: _propTypesDefault.default.shape({
-        firstname: _propTypesDefault.default.string,
-        lastname: _propTypesDefault.default.string,
-        username: _propTypesDefault.default.string.isRequired,
-        password: _propTypesDefault.default.string.isRequired,
-        email: PropTypes.string.isRequired,
-        birthday: _propTypesDefault.default.string.isRequired
-    })
+RegistrationView.propTypes = {
+    onRegistration: _propTypesDefault.default.func.isRequired
 };
 var _c;
 $RefreshReg$(_c, "RegistrationView");
