@@ -1,26 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-<<<<<<< HEAD
-import Proptypes from "prop-types";
-
-export function RegistrationView(props) {
-  const [firstname, setFirstName] = useState("");
-  const [lastname, setLastName] = useState("");
-=======
 import PropTypes from "prop-types";
 
 export function RegistrationView(props) {
->>>>>>> main
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
 
-<<<<<<< HEAD
-  const { onLoggedIn } = props;
-=======
   const { onRegistration } = props;
->>>>>>> main
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -84,18 +72,6 @@ export function RegistrationView(props) {
   );
 }
 
-<<<<<<< HEAD
-Registraionview.proptypes = {
-  resister: Proptypes.shape({
-    firstname: Proptypes.string,
-    lastname: Proptypes.string,
-    username: Proptypes.string.isRequired,
-    password: Proptypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    birthday: Proptypes.string.isRequired,
-  }),
-=======
 RegistrationView.propTypes = {
   onRegistration: PropTypes.func.isRequired,
->>>>>>> main
 };
