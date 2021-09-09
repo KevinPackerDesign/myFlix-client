@@ -27,7 +27,7 @@ export function RegistrationView(props) {
       .then((response) => {
         const data = response.data;
         console.log(data);
-        alert("registration successfull! Please Login.");
+        window.open("/", "_self");
       })
       .catch((e) => {
         alert("This user is already registered.");
