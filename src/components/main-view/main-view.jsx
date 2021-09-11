@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import { BrowerRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
@@ -9,7 +9,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
 import { RegistrationView } from "../registration-view/registration-view";
-import { NavBar } from "../navbar-view/navbar-view";
+// import { NavBar } from "../navbar-view/navbar-view";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -83,7 +83,6 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-        <NavBar user={user} />
         <Row className="main-view justify-content-md-center">
           <Route
             exact
