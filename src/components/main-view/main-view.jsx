@@ -9,15 +9,16 @@ import { MovieView } from "../movie-view/movie-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
 import { RegistrationView } from "../registration-view/registration-view";
-// import { NavBar } from "../navbar-view/navbar-view";
+import { NavBar } from "../navbar-view/navbar-view";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { cloneElement } from "react";
 
 export class MainView extends React.Component {
   constructor() {
     super();
-    this.state = {
+    state = {
       movies: [],
       user: null,
     };
@@ -66,6 +67,7 @@ export class MainView extends React.Component {
       })
       .then((response) => {
         this.setState({ movies: response.data });
+        console.log(this.state.movies, "hello world");
       })
       .catch(function (error) {
         console.log(error);
@@ -81,17 +83,23 @@ export class MainView extends React.Component {
   render() {
     const { movies, user } = this.state;
 
+    console.log(movies);
+
     return (
       <Router>
+        <NavBar user={user} />
+
         <Row className="main-view justify-content-md-center">
           <Route
             exact
             path="/"
             render={() => {
-              if (!user) return;
-              <Col>
-                <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-              </Col>;
+              if (!user)
+                return (
+                  <Col>
+                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                  </Col>
+                );
               if (movies.length === 0) return <div className="main-view" />;
               return movies.map((m) => (
                 <Col md={3} key={m._id}>
@@ -144,7 +152,7 @@ export class MainView extends React.Component {
             }}
           />
           <Route
-            path="/genres/:name"
+            path="/genres/:Name"
             render={({ match, history }) => {
               if (!user)
                 return (
@@ -167,7 +175,7 @@ export class MainView extends React.Component {
             }}
           />
           <Route
-            path="/directors/:name"
+            path="/directors/:Name"
             render={({ match, history }) => {
               if (!user)
                 return (

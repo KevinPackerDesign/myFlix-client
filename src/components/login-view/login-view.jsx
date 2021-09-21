@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import axios from "axios";
 import "./login-view.scss";
 
 export function LoginView(props) {
@@ -12,7 +13,17 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.onLoggedIn(username);
+    axios
+      .post(
+        `https://kpmyflix.herokuapp.com/login?Username=${username}&Password=${password}`
+      )
+      .then((response) => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch((e) => {
+        console.log("no such user");
+      });
   };
 
   return (
@@ -54,5 +65,9 @@ export function LoginView(props) {
 }
 
 LoginView.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+  }),
   onLoggedIn: PropTypes.func.isRequired,
 };
