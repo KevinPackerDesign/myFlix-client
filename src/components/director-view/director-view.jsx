@@ -4,21 +4,19 @@ import Button from "react-bootstrap/Button";
 
 export class DirectorView extends React.Component {
   render() {
-    const { movie, onBackClick } = this.props;
+    const { director, onBackClick } = this.props;
 
     return (
       <div className="director-view">
         <div>
-          <h1>
-            <span className="value">{movie.Director.Name}</span>
-          </h1>
+          <span className="value">{director.Name}</span>
         </div>
         <div>
-          <span className="value">{movie.Director.Bio}</span>
+          <span className="value">{director.Bio}</span>
         </div>
 
         <div>
-          <span className="value">{movie.Director.Birthdate}</span>
+          <span className="value">{director.Birth}</span>
         </div>
 
         <button

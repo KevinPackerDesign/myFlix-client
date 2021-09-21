@@ -9,6 +9,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
 import { RegistrationView } from "../registration-view/registration-view";
+import { ProfileView } from "../profile-view/profile-view";
 import { NavBar } from "../navbar-view/navbar-view";
 
 import Row from "react-bootstrap/Row";
@@ -18,7 +19,7 @@ import { cloneElement } from "react";
 export class MainView extends React.Component {
   constructor() {
     super();
-    state = {
+    this.state = {
       movies: [],
       user: null,
     };
@@ -87,8 +88,9 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-        <NavBar user={user} />
-
+        <Row>
+          <NavBar user={user} />
+        </Row>
         <Row className="main-view justify-content-md-center">
           <Route
             exact
@@ -119,8 +121,8 @@ export class MainView extends React.Component {
               );
             }}
           />
-          <Route
-            path="/profile"
+          {/* <Route
+            path="/profile/:Username"
             render={() => {
               if (!user)
                 return (
@@ -129,7 +131,7 @@ export class MainView extends React.Component {
                   </Col>
                 );
             }}
-          />
+          /> */}
 
           <Route
             path="/movies/:movieId"
@@ -142,7 +144,7 @@ export class MainView extends React.Component {
                 );
               if (movies.length === 0) return <div className="main-view" />;
               return (
-                <Col md={8}>
+                <Col>
                   <MovieView
                     movie={movies.find((m) => m._id === match.params.movieId)}
                     onBackClick={() => history.goBack()}
@@ -152,7 +154,7 @@ export class MainView extends React.Component {
             }}
           />
           <Route
-            path="/genres/:Name"
+            path="/genres/:name"
             render={({ match, history }) => {
               if (!user)
                 return (
@@ -160,7 +162,7 @@ export class MainView extends React.Component {
                     <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                   </Col>
                 );
-              if (movies.length === 0) return <div className="main-view" />;
+              if (movies.length === 0) return <div className="main-view"></div>;
               return (
                 <Col md={8}>
                   <GenreView
@@ -175,7 +177,7 @@ export class MainView extends React.Component {
             }}
           />
           <Route
-            path="/directors/:Name"
+            path="/directors/:name"
             render={({ match, history }) => {
               if (!user)
                 return (
@@ -183,7 +185,7 @@ export class MainView extends React.Component {
                     <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                   </Col>
                 );
-              if (movies.length === 0) return <div className="main-view" />;
+              if (movies.length === 0) return <div className="main-view"></div>;
               return (
                 <Col md={8}>
                   <DirectorView
