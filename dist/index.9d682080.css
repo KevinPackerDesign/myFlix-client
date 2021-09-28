@@ -6,11 +6,24 @@
   background-color: red !important;
   color: black !important;
 }
+
+.registerButton {
+  background-color: black !important;
+  color: Red !important;
+}
 .regbutton {
   background-color: red !important;
   color: black !important;
 }
-
+.director-view {
+  margin: 75px auto !important;
+}
+.genre-view {
+  margin: 75px auto !important;
+}
+.profile-view {
+  margin: 75px auto !important;
+}
 .my-flix {
   color: steelblue;
 }

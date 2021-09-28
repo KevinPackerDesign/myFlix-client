@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import axios from "axios";
@@ -17,6 +18,7 @@ export function LoginView(props) {
       .post(
         `https://kpmyflix.herokuapp.com/login?Username=${username}&Password=${password}`
       )
+
       .then((response) => {
         const data = response.data;
         props.onLoggedIn(data);
@@ -58,6 +60,9 @@ export function LoginView(props) {
           >
             Submit
           </Button>
+          <Link to={`/register`}>
+            <Button variant="secondary">Register</Button>
+          </Link>
         </Col>
       </Row>
     </Form>

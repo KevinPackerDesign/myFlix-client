@@ -1,5 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
+import "./genre-view.scss";
 
 export class GenreView extends React.Component {
   render() {

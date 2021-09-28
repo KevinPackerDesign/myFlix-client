@@ -121,17 +121,6 @@ export class MainView extends React.Component {
               );
             }}
           />
-          {/* <Route
-            path="/profile/:Username"
-            render={() => {
-              if (!user)
-                return (
-                  <Col>
-                    <ProfileView />
-                  </Col>
-                );
-            }}
-          /> */}
 
           <Route
             path="/movies/:movieId"
@@ -199,7 +188,6 @@ export class MainView extends React.Component {
               );
             }}
           />
-
           <Route
             exact
             path="/users/:username"
