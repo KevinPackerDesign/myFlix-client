@@ -8,12 +8,17 @@ import { Link } from "react-router-dom";
 export class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
+
     return (
-      <Card className="card">
+      <Card bg="dark" text="white">
         <Card.Img className="image" variant="top" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
-          <Card.Text>{movie.Description}</Card.Text>
+          <Card.Text>
+            {movie.Description.length >= 100
+              ? movie.Description.substring(0, 100) + "..."
+              : movie.Description}
+          </Card.Text>
           <Link to={`/movies/${movie._id}`}>
             <Button variant="link">Open</Button>
           </Link>

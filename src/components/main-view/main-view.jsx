@@ -45,22 +45,6 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
-  getUsers(token) {
-    axios
-      .post("https://kpmyflix.herokuapp.com/users", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        this.setState({
-          users: response.data,
-        });
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
   getMovies(token) {
     axios
       .get("https://kpmyflix.herokuapp.com/movies", {

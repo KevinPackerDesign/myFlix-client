@@ -21906,20 +21906,6 @@ class MainView extends _reactDefault.default.Component {
         localStorage.setItem("user", authData.user.Username);
         this.getMovies(authData.token);
     }
-    getUsers(token) {
-        _axiosDefault.default.post("https://kpmyflix.herokuapp.com/users", {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>{
-            this.setState({
-                users: response.data
-            });
-            console.log(response);
-        }).catch(function(error) {
-            console.log(error);
-        });
-    }
     getMovies(token) {
         _axiosDefault.default.get("https://kpmyflix.herokuapp.com/movies", {
             headers: {
@@ -21945,27 +21931,27 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 90
+                lineNumber: 74
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 91
+                lineNumber: 75
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_navbarView.NavBar, {
             user: user,
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 92
+                lineNumber: 76
             },
             __self: this
         })), /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
             className: "main-view justify-content-md-center",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 94
+                lineNumber: 78
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -21988,7 +21974,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 95
+                lineNumber: 79
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22001,7 +21987,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 113
+                lineNumber: 97
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22021,7 +22007,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 125
+                lineNumber: 109
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22043,7 +22029,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 145
+                lineNumber: 129
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22065,7 +22051,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 168
+                lineNumber: 152
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Route, {
@@ -22083,7 +22069,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 191
+                lineNumber: 175
             },
             __self: this
         }))));
@@ -22095,7 +22081,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"7IoRK","../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3QRYi","../movie-card/movie-card":"5zSGW","../movie-view/movie-view":"WId6c","axios":"7rA65","../login-view/login-view":"1XhxI","../registration-view/registration-view":"xpZ5s","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","react-router-dom":"1PMSK","../director-view/director-view":"4HJLw","../genre-view/genre-view":"4OgoV","../navbar-view/navbar-view":"7xQHc","../profile-view/profile-view":"4sFc7"}],"7IoRK":[function(require,module,exports) {
+},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"7IoRK","../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3QRYi","../movie-view/movie-view":"WId6c","axios":"7rA65","../login-view/login-view":"1XhxI","../registration-view/registration-view":"xpZ5s","react-bootstrap/Row":"3fzwD","react-bootstrap/Col":"2D0r8","react-router-dom":"1PMSK","../director-view/director-view":"4HJLw","../genre-view/genre-view":"4OgoV","../navbar-view/navbar-view":"7xQHc","../profile-view/profile-view":"4sFc7","../movie-card/movie-card":"5zSGW"}],"7IoRK":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -22247,7 +22233,7 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"3Hh8h"}],"5zSGW":[function(require,module,exports) {
+},{"react-refresh/runtime":"3Hh8h"}],"WId6c":[function(require,module,exports) {
 var helpers = require("../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -22256,80 +22242,156 @@ helpers.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
+parcelHelpers.export(exports, "MovieView", ()=>MovieView
 );
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _card = require("react-bootstrap/Card");
-var _cardDefault = parcelHelpers.interopDefault(_card);
-var _movieCardScss = require("./movie-card.scss");
-var _reactRouterDom = require("react-router-dom");
-class MovieCard extends _reactDefault.default.Component {
+class MovieView extends _reactDefault.default.Component {
+    addMovie(movie) {
+        const token = localStorage.getItem("token");
+        const username = localStorage.getItem("user");
+        _axiosDefault.default.post(`https://kpmyflix.herokuapp.com/users/${username}/movies/${movie._id}}` + {
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            console.log(response);
+            alert(this.props.movie.Title + " has been added to your favorites!");
+        });
+    }
     render() {
-        const { movie  } = this.props;
-        return(/*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
-            className: "card",
+        const { movie , onBackClick  } = this.props;
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-view",
             __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 12
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 30
             },
             __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
-            className: "image",
-            variant: "top",
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-poster",
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 31
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("img", {
             src: movie.ImagePath,
+            height: "750px",
+            width: "500px",
             __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 13
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 32
             },
             __self: this
-        }), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
+        })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-title",
             __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 14
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 34
             },
             __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "label",
             __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 15
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 35
             },
             __self: this
-        }, movie.Title), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
+        }, "Title: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "value",
             __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 16
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 36
             },
             __self: this
-        }, movie.Description), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
-            to: `/movies/${movie._id}`,
+        }, movie.Title)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-description",
             __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 17
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 38
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "label",
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 39
+            },
+            __self: this
+        }, "Description: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "value",
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 40
+            },
+            __self: this
+        }, movie.Description)), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+            to: `/directors/${movie.Director.Name}`,
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 42
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
             variant: "link",
             __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 18
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 43
             },
             __self: this
-        }, "Open")))));
+        }, "Director")), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+            to: `/genres/${movie.Genre.Name}`,
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 45
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            variant: "link",
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 46
+            },
+            __self: this
+        }, "Genre")), /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            variant: "link",
+            onClick: ()=>this.addMovie(movie)
+            ,
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 49
+            },
+            __self: this
+        }, "Add to favorites"), /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            onClick: ()=>{
+                onBackClick(null);
+            },
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 53
+            },
+            __self: this
+        }, "Back")));
     }
 }
-MovieCard.propTypes = {
+MovieView.propTypes = {
     movie: _propTypesDefault.default.shape({
         Title: _propTypesDefault.default.string,
         Description: _propTypesDefault.default.string.isRequired,
-        // Genres: PropTypes.string.isRequired,
-        // Director: PropTypes.string.isRequired,
+        Genre: _propTypesDefault.default.object.isRequired,
+        Director: _propTypesDefault.default.object.isRequired,
         ImagePath: _propTypesDefault.default.string.isRequired
-    }).isRequired
+    }).isRequired,
+    onBackClick: _propTypesDefault.default.func.isRequired
 };
 
   helpers.postlude(module);
@@ -22337,7 +22399,7 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"7IoRK","../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3QRYi","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-router-dom":"1PMSK","./movie-card.scss":"6KB6f"}],"4dfy5":[function(require,module,exports) {
+},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"7IoRK","../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3QRYi","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-router-dom":"1PMSK","axios":"7rA65"}],"4dfy5":[function(require,module,exports) {
 var ReactIs = require('react-is');
 // By explicitly using `prop-types` you are opting into new development behavior.
 // http://fb.me/prop-types-in-prod
@@ -23313,227 +23375,7 @@ var _default = createChainedFunction;
 exports.default = _default;
 module.exports = exports["default"];
 
-},{}],"1CZWQ":[function(require,module,exports) {
-"use strict";
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-exports.__esModule = true;
-exports.default = void 0;
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
-var _classnames = _interopRequireDefault(require("classnames"));
-var _react = _interopRequireWildcard(require("react"));
-var _ThemeProvider = require("./ThemeProvider");
-var _createWithBsPrefix = _interopRequireDefault(require("./createWithBsPrefix"));
-var _divWithClassName = _interopRequireDefault(require("./divWithClassName"));
-var _CardContext = _interopRequireDefault(require("./CardContext"));
-var _CardImg = _interopRequireDefault(require("./CardImg"));
-var _excluded = [
-    "bsPrefix",
-    "className",
-    "bg",
-    "text",
-    "border",
-    "body",
-    "children",
-    "as"
-];
-function _getRequireWildcardCache(nodeInterop) {
-    if (typeof WeakMap !== "function") return null;
-    var cacheBabelInterop = new WeakMap();
-    var cacheNodeInterop = new WeakMap();
-    return (_getRequireWildcardCache = function _getRequireWildcardCache1(nodeInterop1) {
-        return nodeInterop1 ? cacheNodeInterop : cacheBabelInterop;
-    })(nodeInterop);
-}
-function _interopRequireWildcard(obj, nodeInterop) {
-    if (!nodeInterop && obj && obj.__esModule) return obj;
-    if (obj === null || typeof obj !== "object" && typeof obj !== "function") return {
-        default: obj
-    };
-    var cache = _getRequireWildcardCache(nodeInterop);
-    if (cache && cache.has(obj)) return cache.get(obj);
-    var newObj = {
-    };
-    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
-    for(var key in obj)if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
-        var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
-        if (desc && (desc.get || desc.set)) Object.defineProperty(newObj, key, desc);
-        else newObj[key] = obj[key];
-    }
-    newObj.default = obj;
-    if (cache) cache.set(obj, newObj);
-    return newObj;
-}
-var DivStyledAsH5 = _divWithClassName.default('h5');
-var DivStyledAsH6 = _divWithClassName.default('h6');
-var CardBody = _createWithBsPrefix.default('card-body');
-var CardTitle = _createWithBsPrefix.default('card-title', {
-    Component: DivStyledAsH5
-});
-var CardSubtitle = _createWithBsPrefix.default('card-subtitle', {
-    Component: DivStyledAsH6
-});
-var CardLink = _createWithBsPrefix.default('card-link', {
-    Component: 'a'
-});
-var CardText = _createWithBsPrefix.default('card-text', {
-    Component: 'p'
-});
-var CardHeader = _createWithBsPrefix.default('card-header');
-var CardFooter = _createWithBsPrefix.default('card-footer');
-var CardImgOverlay = _createWithBsPrefix.default('card-img-overlay');
-var defaultProps = {
-    body: false
-};
-var Card = /*#__PURE__*/ _react.default.forwardRef(function(_ref, ref) {
-    var bsPrefix = _ref.bsPrefix, className = _ref.className, bg = _ref.bg, text = _ref.text, border = _ref.border, body = _ref.body, children = _ref.children, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'div' : _ref$as, props = _objectWithoutPropertiesLoose2.default(_ref, _excluded);
-    var prefix = _ThemeProvider.useBootstrapPrefix(bsPrefix, 'card');
-    var cardContext = _react.useMemo(function() {
-        return {
-            cardHeaderBsPrefix: prefix + "-header"
-        };
-    }, [
-        prefix
-    ]);
-    return(/*#__PURE__*/ _react.default.createElement(_CardContext.default.Provider, {
-        value: cardContext
-    }, /*#__PURE__*/ _react.default.createElement(Component, _extends2.default({
-        ref: ref
-    }, props, {
-        className: _classnames.default(className, prefix, bg && "bg-" + bg, text && "text-" + text, border && "border-" + border)
-    }), body ? /*#__PURE__*/ // @ts-ignore
-    _react.default.createElement(CardBody, null, children) : children)));
-});
-Card.displayName = 'Card';
-Card.defaultProps = defaultProps;
-Card.Img = _CardImg.default;
-Card.Title = CardTitle;
-Card.Subtitle = CardSubtitle;
-Card.Body = CardBody;
-Card.Link = CardLink;
-Card.Text = CardText;
-Card.Header = CardHeader;
-Card.Footer = CardFooter;
-Card.ImgOverlay = CardImgOverlay;
-var _default = Card;
-exports.default = _default;
-module.exports = exports["default"];
-
-},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","./ThemeProvider":"4rz1S","./createWithBsPrefix":"2oVVc","./divWithClassName":"27J3S","./CardContext":"71yot","./CardImg":"68LPL"}],"2oVVc":[function(require,module,exports) {
-"use strict";
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-exports.__esModule = true;
-exports.default = createWithBsPrefix;
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
-var _classnames = _interopRequireDefault(require("classnames"));
-var _camelize = _interopRequireDefault(require("dom-helpers/camelize"));
-var _react = _interopRequireDefault(require("react"));
-var _ThemeProvider = require("./ThemeProvider");
-var _excluded = [
-    "className",
-    "bsPrefix",
-    "as"
-];
-var pascalCase = function pascalCase1(str) {
-    return str[0].toUpperCase() + _camelize.default(str).slice(1);
-};
-// TODO: emstricten & fix the typing here! `createWithBsPrefix<TElementType>...`
-function createWithBsPrefix(prefix, _temp) {
-    var _ref = _temp === void 0 ? {
-    } : _temp, _ref$displayName = _ref.displayName, displayName = _ref$displayName === void 0 ? pascalCase(prefix) : _ref$displayName, Component = _ref.Component, defaultProps = _ref.defaultProps;
-    var BsComponent = /*#__PURE__*/ _react.default.forwardRef(function(_ref2, ref) {
-        var className = _ref2.className, bsPrefix = _ref2.bsPrefix, _ref2$as = _ref2.as, Tag = _ref2$as === void 0 ? Component || 'div' : _ref2$as, props = _objectWithoutPropertiesLoose2.default(_ref2, _excluded);
-        var resolvedPrefix = _ThemeProvider.useBootstrapPrefix(bsPrefix, prefix);
-        return(/*#__PURE__*/ _react.default.createElement(Tag, _extends2.default({
-            ref: ref,
-            className: _classnames.default(className, resolvedPrefix)
-        }, props)));
-    });
-    BsComponent.defaultProps = defaultProps;
-    BsComponent.displayName = displayName;
-    return BsComponent;
-}
-module.exports = exports["default"];
-
-},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","dom-helpers/camelize":"7AXwA","react":"3b2NM","./ThemeProvider":"4rz1S"}],"7AXwA":[function(require,module,exports) {
-"use strict";
-exports.__esModule = true;
-exports.default = camelize;
-var rHyphen = /-(.)/g;
-function camelize(string) {
-    return string.replace(rHyphen, function(_, chr) {
-        return chr.toUpperCase();
-    });
-}
-module.exports = exports["default"];
-
-},{}],"27J3S":[function(require,module,exports) {
-"use strict";
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-exports.__esModule = true;
-exports.default = void 0;
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-var _react = _interopRequireDefault(require("react"));
-var _classnames = _interopRequireDefault(require("classnames"));
-var _default = function _default1(className) {
-    return(/*#__PURE__*/ _react.default.forwardRef(function(p, ref) {
-        return(/*#__PURE__*/ _react.default.createElement("div", _extends2.default({
-        }, p, {
-            ref: ref,
-            className: _classnames.default(p.className, className)
-        })));
-    }));
-};
-exports.default = _default;
-module.exports = exports["default"];
-
-},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","react":"3b2NM","classnames":"5aJRc"}],"71yot":[function(require,module,exports) {
-"use strict";
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-exports.__esModule = true;
-exports.default = void 0;
-var _react = _interopRequireDefault(require("react"));
-var context = /*#__PURE__*/ _react.default.createContext(null);
-context.displayName = 'CardContext';
-var _default = context;
-exports.default = _default;
-module.exports = exports["default"];
-
-},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","react":"3b2NM"}],"68LPL":[function(require,module,exports) {
-"use strict";
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-exports.__esModule = true;
-exports.default = void 0;
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
-var _classnames = _interopRequireDefault(require("classnames"));
-var _react = _interopRequireDefault(require("react"));
-var _ThemeProvider = require("./ThemeProvider");
-var _excluded = [
-    "bsPrefix",
-    "className",
-    "variant",
-    "as"
-];
-var defaultProps = {
-    variant: null
-};
-var CardImg = /*#__PURE__*/ _react.default.forwardRef(function(_ref, ref) {
-    var bsPrefix = _ref.bsPrefix, className = _ref.className, variant = _ref.variant, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'img' : _ref$as, props = _objectWithoutPropertiesLoose2.default(_ref, _excluded);
-    var prefix = _ThemeProvider.useBootstrapPrefix(bsPrefix, 'card-img');
-    return(/*#__PURE__*/ _react.default.createElement(Component, _extends2.default({
-        ref: ref,
-        className: _classnames.default(variant ? prefix + "-" + variant : prefix, className)
-    }, props)));
-});
-CardImg.displayName = 'CardImg';
-CardImg.defaultProps = defaultProps;
-var _default = CardImg;
-exports.default = _default;
-module.exports = exports["default"];
-
-},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","./ThemeProvider":"4rz1S"}],"1PMSK":[function(require,module,exports) {
+},{}],"1PMSK":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-router-dom.js");
 
@@ -25956,149 +25798,7 @@ function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
 }
 module.exports = hoistNonReactStatics;
 
-},{"react-is":"68QIU"}],"6KB6f":[function() {},{}],"WId6c":[function(require,module,exports) {
-var helpers = require("../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-helpers.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MovieView", ()=>MovieView
-);
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _reactRouterDom = require("react-router-dom");
-var _button = require("react-bootstrap/Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
-class MovieView extends _reactDefault.default.Component {
-    render() {
-        const { movie , onBackClick  } = this.props;
-        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
-            className: "movie-view",
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 12
-            },
-            __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
-            className: "movie-poster",
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 13
-            },
-            __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement("img", {
-            src: movie.ImagePath,
-            height: "750px",
-            width: "500px",
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 14
-            },
-            __self: this
-        })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
-            className: "movie-title",
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 16
-            },
-            __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
-            className: "label",
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 17
-            },
-            __self: this
-        }, "Title: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
-            className: "value",
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 18
-            },
-            __self: this
-        }, movie.Title)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
-            className: "movie-description",
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 20
-            },
-            __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
-            className: "label",
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 21
-            },
-            __self: this
-        }, "Description: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
-            className: "value",
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 22
-            },
-            __self: this
-        }, movie.Description)), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
-            to: `/directors/${movie.Director.Name}`,
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 24
-            },
-            __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            variant: "link",
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 25
-            },
-            __self: this
-        }, "Director")), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
-            to: `/genres/${movie.Genre.Name}`,
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 27
-            },
-            __self: this
-        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
-            variant: "link",
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 28
-            },
-            __self: this
-        }, "Genre")), /*#__PURE__*/ _reactDefault.default.createElement("button", {
-            onClick: ()=>{
-                onBackClick(null);
-            },
-            __source: {
-                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 30
-            },
-            __self: this
-        }, "Back")));
-    }
-}
-MovieView.propTypes = {
-    movie: _propTypesDefault.default.shape({
-        Title: _propTypesDefault.default.string,
-        Description: _propTypesDefault.default.string.isRequired,
-        Genre: _propTypesDefault.default.string.isRequired,
-        Director: _propTypesDefault.default.string.isRequired,
-        ImagePath: _propTypesDefault.default.string.isRequired
-    }).isRequired,
-    onBackClick: _propTypesDefault.default.func.isRequired
-};
-
-  helpers.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react":"3b2NM","@parcel/transformer-js/src/esmodule-helpers.js":"7IoRK","../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3QRYi","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-router-dom":"1PMSK"}],"7rA65":[function(require,module,exports) {
+},{"react-is":"68QIU"}],"7rA65":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"4qfhW"}],"4qfhW":[function(require,module,exports) {
@@ -28720,7 +28420,56 @@ var _default = Switch;
 exports.default = _default;
 module.exports = exports["default"];
 
-},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","react":"3b2NM","./FormCheck":"6WcKM"}],"3fzwD":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","react":"3b2NM","./FormCheck":"6WcKM"}],"2oVVc":[function(require,module,exports) {
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+exports.__esModule = true;
+exports.default = createWithBsPrefix;
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+var _classnames = _interopRequireDefault(require("classnames"));
+var _camelize = _interopRequireDefault(require("dom-helpers/camelize"));
+var _react = _interopRequireDefault(require("react"));
+var _ThemeProvider = require("./ThemeProvider");
+var _excluded = [
+    "className",
+    "bsPrefix",
+    "as"
+];
+var pascalCase = function pascalCase1(str) {
+    return str[0].toUpperCase() + _camelize.default(str).slice(1);
+};
+// TODO: emstricten & fix the typing here! `createWithBsPrefix<TElementType>...`
+function createWithBsPrefix(prefix, _temp) {
+    var _ref = _temp === void 0 ? {
+    } : _temp, _ref$displayName = _ref.displayName, displayName = _ref$displayName === void 0 ? pascalCase(prefix) : _ref$displayName, Component = _ref.Component, defaultProps = _ref.defaultProps;
+    var BsComponent = /*#__PURE__*/ _react.default.forwardRef(function(_ref2, ref) {
+        var className = _ref2.className, bsPrefix = _ref2.bsPrefix, _ref2$as = _ref2.as, Tag = _ref2$as === void 0 ? Component || 'div' : _ref2$as, props = _objectWithoutPropertiesLoose2.default(_ref2, _excluded);
+        var resolvedPrefix = _ThemeProvider.useBootstrapPrefix(bsPrefix, prefix);
+        return(/*#__PURE__*/ _react.default.createElement(Tag, _extends2.default({
+            ref: ref,
+            className: _classnames.default(className, resolvedPrefix)
+        }, props)));
+    });
+    BsComponent.defaultProps = defaultProps;
+    BsComponent.displayName = displayName;
+    return BsComponent;
+}
+module.exports = exports["default"];
+
+},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","dom-helpers/camelize":"7AXwA","react":"3b2NM","./ThemeProvider":"4rz1S"}],"7AXwA":[function(require,module,exports) {
+"use strict";
+exports.__esModule = true;
+exports.default = camelize;
+var rHyphen = /-(.)/g;
+function camelize(string) {
+    return string.replace(rHyphen, function(_, chr) {
+        return chr.toUpperCase();
+    });
+}
+module.exports = exports["default"];
+
+},{}],"3fzwD":[function(require,module,exports) {
 "use strict";
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 exports.__esModule = true;
@@ -29281,6 +29030,7 @@ class NavBar extends _reactDefault.default.Component {
             },
             __self: this
         }, /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar.Toggle, {
+            onToggle: true,
             "aria-controls": "basic-navbar-nav",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/navbar-view/navbar-view.jsx",
@@ -29288,6 +29038,7 @@ class NavBar extends _reactDefault.default.Component {
             },
             __self: this
         }), /*#__PURE__*/ _reactDefault.default.createElement(_reactBootstrap.Navbar.Collapse, {
+            onToggle: true,
             id: "responsive-navbar-nav",
             __source: {
                 fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/navbar-view/navbar-view.jsx",
@@ -31474,7 +31225,27 @@ var _default = CloseButton;
 exports.default = _default;
 module.exports = exports["default"];
 
-},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","prop-types":"4dfy5","react":"3b2NM","classnames":"5aJRc"}],"2aFSj":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","prop-types":"4dfy5","react":"3b2NM","classnames":"5aJRc"}],"27J3S":[function(require,module,exports) {
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+exports.__esModule = true;
+exports.default = void 0;
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+var _react = _interopRequireDefault(require("react"));
+var _classnames = _interopRequireDefault(require("classnames"));
+var _default = function _default1(className) {
+    return(/*#__PURE__*/ _react.default.forwardRef(function(p, ref) {
+        return(/*#__PURE__*/ _react.default.createElement("div", _extends2.default({
+        }, p, {
+            ref: ref,
+            className: _classnames.default(p.className, className)
+        })));
+    }));
+};
+exports.default = _default;
+module.exports = exports["default"];
+
+},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","react":"3b2NM","classnames":"5aJRc"}],"2aFSj":[function(require,module,exports) {
 "use strict";
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 exports.__esModule = true;
@@ -31672,6 +31443,157 @@ var ButtonToolbar = /*#__PURE__*/ _react.default.forwardRef(function(_ref, ref) 
 ButtonToolbar.displayName = 'ButtonToolbar';
 ButtonToolbar.defaultProps = defaultProps;
 var _default = ButtonToolbar;
+exports.default = _default;
+module.exports = exports["default"];
+
+},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","./ThemeProvider":"4rz1S"}],"1CZWQ":[function(require,module,exports) {
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+exports.__esModule = true;
+exports.default = void 0;
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+var _classnames = _interopRequireDefault(require("classnames"));
+var _react = _interopRequireWildcard(require("react"));
+var _ThemeProvider = require("./ThemeProvider");
+var _createWithBsPrefix = _interopRequireDefault(require("./createWithBsPrefix"));
+var _divWithClassName = _interopRequireDefault(require("./divWithClassName"));
+var _CardContext = _interopRequireDefault(require("./CardContext"));
+var _CardImg = _interopRequireDefault(require("./CardImg"));
+var _excluded = [
+    "bsPrefix",
+    "className",
+    "bg",
+    "text",
+    "border",
+    "body",
+    "children",
+    "as"
+];
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function _getRequireWildcardCache1(nodeInterop1) {
+        return nodeInterop1 ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interopRequireWildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) return obj;
+    if (obj === null || typeof obj !== "object" && typeof obj !== "function") return {
+        default: obj
+    };
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) return cache.get(obj);
+    var newObj = {
+    };
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj)if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+        var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+        if (desc && (desc.get || desc.set)) Object.defineProperty(newObj, key, desc);
+        else newObj[key] = obj[key];
+    }
+    newObj.default = obj;
+    if (cache) cache.set(obj, newObj);
+    return newObj;
+}
+var DivStyledAsH5 = _divWithClassName.default('h5');
+var DivStyledAsH6 = _divWithClassName.default('h6');
+var CardBody = _createWithBsPrefix.default('card-body');
+var CardTitle = _createWithBsPrefix.default('card-title', {
+    Component: DivStyledAsH5
+});
+var CardSubtitle = _createWithBsPrefix.default('card-subtitle', {
+    Component: DivStyledAsH6
+});
+var CardLink = _createWithBsPrefix.default('card-link', {
+    Component: 'a'
+});
+var CardText = _createWithBsPrefix.default('card-text', {
+    Component: 'p'
+});
+var CardHeader = _createWithBsPrefix.default('card-header');
+var CardFooter = _createWithBsPrefix.default('card-footer');
+var CardImgOverlay = _createWithBsPrefix.default('card-img-overlay');
+var defaultProps = {
+    body: false
+};
+var Card = /*#__PURE__*/ _react.default.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, className = _ref.className, bg = _ref.bg, text = _ref.text, border = _ref.border, body = _ref.body, children = _ref.children, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'div' : _ref$as, props = _objectWithoutPropertiesLoose2.default(_ref, _excluded);
+    var prefix = _ThemeProvider.useBootstrapPrefix(bsPrefix, 'card');
+    var cardContext = _react.useMemo(function() {
+        return {
+            cardHeaderBsPrefix: prefix + "-header"
+        };
+    }, [
+        prefix
+    ]);
+    return(/*#__PURE__*/ _react.default.createElement(_CardContext.default.Provider, {
+        value: cardContext
+    }, /*#__PURE__*/ _react.default.createElement(Component, _extends2.default({
+        ref: ref
+    }, props, {
+        className: _classnames.default(className, prefix, bg && "bg-" + bg, text && "text-" + text, border && "border-" + border)
+    }), body ? /*#__PURE__*/ // @ts-ignore
+    _react.default.createElement(CardBody, null, children) : children)));
+});
+Card.displayName = 'Card';
+Card.defaultProps = defaultProps;
+Card.Img = _CardImg.default;
+Card.Title = CardTitle;
+Card.Subtitle = CardSubtitle;
+Card.Body = CardBody;
+Card.Link = CardLink;
+Card.Text = CardText;
+Card.Header = CardHeader;
+Card.Footer = CardFooter;
+Card.ImgOverlay = CardImgOverlay;
+var _default = Card;
+exports.default = _default;
+module.exports = exports["default"];
+
+},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","./ThemeProvider":"4rz1S","./createWithBsPrefix":"2oVVc","./divWithClassName":"27J3S","./CardContext":"71yot","./CardImg":"68LPL"}],"71yot":[function(require,module,exports) {
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+exports.__esModule = true;
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var context = /*#__PURE__*/ _react.default.createContext(null);
+context.displayName = 'CardContext';
+var _default = context;
+exports.default = _default;
+module.exports = exports["default"];
+
+},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","react":"3b2NM"}],"68LPL":[function(require,module,exports) {
+"use strict";
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+exports.__esModule = true;
+exports.default = void 0;
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+var _classnames = _interopRequireDefault(require("classnames"));
+var _react = _interopRequireDefault(require("react"));
+var _ThemeProvider = require("./ThemeProvider");
+var _excluded = [
+    "bsPrefix",
+    "className",
+    "variant",
+    "as"
+];
+var defaultProps = {
+    variant: null
+};
+var CardImg = /*#__PURE__*/ _react.default.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, className = _ref.className, variant = _ref.variant, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'img' : _ref$as, props = _objectWithoutPropertiesLoose2.default(_ref, _excluded);
+    var prefix = _ThemeProvider.useBootstrapPrefix(bsPrefix, 'card-img');
+    return(/*#__PURE__*/ _react.default.createElement(Component, _extends2.default({
+        ref: ref,
+        className: _classnames.default(variant ? prefix + "-" + variant : prefix, className)
+    }, props)));
+});
+CardImg.displayName = 'CardImg';
+CardImg.defaultProps = defaultProps;
+var _default = CardImg;
 exports.default = _default;
 module.exports = exports["default"];
 
@@ -40379,6 +40301,97 @@ ProfileView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","axios":"7rA65","prop-types":"4dfy5","react-bootstrap":"4n7hB","./profile-view.scss":"2cEVN","@parcel/transformer-js/src/esmodule-helpers.js":"7IoRK","../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3QRYi"}],"2cEVN":[function() {},{}],"75r4t":[function() {},{}]},["1j6wU","1ZBdG","1TLLR"], "1TLLR", "parcelRequire279c")
+},{"react":"3b2NM","axios":"7rA65","prop-types":"4dfy5","react-bootstrap":"4n7hB","./profile-view.scss":"2cEVN","@parcel/transformer-js/src/esmodule-helpers.js":"7IoRK","../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3QRYi"}],"2cEVN":[function() {},{}],"5zSGW":[function(require,module,exports) {
+var helpers = require("../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _card = require("react-bootstrap/Card");
+var _cardDefault = parcelHelpers.interopDefault(_card);
+var _movieCardScss = require("./movie-card.scss");
+var _reactRouterDom = require("react-router-dom");
+class MovieCard extends _reactDefault.default.Component {
+    render() {
+        const { movie  } = this.props;
+        return(/*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default, {
+            bg: "dark",
+            text: "white",
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
+                lineNumber: 13
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Img, {
+            className: "image",
+            variant: "top",
+            src: movie.ImagePath,
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
+                lineNumber: 14
+            },
+            __self: this
+        }), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Body, {
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
+                lineNumber: 15
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Title, {
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
+                lineNumber: 16
+            },
+            __self: this
+        }, movie.Title), /*#__PURE__*/ _reactDefault.default.createElement(_cardDefault.default.Text, {
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
+                lineNumber: 17
+            },
+            __self: this
+        }, movie.Description.length >= 100 ? movie.Description.substring(0, 100) + "..." : movie.Description), /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+            to: `/movies/${movie._id}`,
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
+                lineNumber: 22
+            },
+            __self: this
+        }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+            variant: "link",
+            __source: {
+                fileName: "/Users/kevinpacker/Documents/GitHub/myFlix-client/src/components/movie-card/movie-card.jsx",
+                lineNumber: 23
+            },
+            __self: this
+        }, "Open")))));
+    }
+}
+MovieCard.propTypes = {
+    movie: _propTypesDefault.default.shape({
+        Title: _propTypesDefault.default.string,
+        Description: _propTypesDefault.default.string.isRequired,
+        // Genres: PropTypes.string.isRequired,
+        // Director: PropTypes.string.isRequired,
+        ImagePath: _propTypesDefault.default.string.isRequired
+    }).isRequired
+};
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"3b2NM","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","./movie-card.scss":"6KB6f","react-router-dom":"1PMSK","@parcel/transformer-js/src/esmodule-helpers.js":"7IoRK","../../../../../../.nvm/versions/node/v14.16.1/lib/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3QRYi"}],"6KB6f":[function() {},{}],"75r4t":[function() {},{}]},["1j6wU","1ZBdG","1TLLR"], "1TLLR", "parcelRequire279c")
 
 //# sourceMappingURL=index.936aa978.js.map

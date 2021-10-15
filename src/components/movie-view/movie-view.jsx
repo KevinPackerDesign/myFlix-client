@@ -1,10 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
 export class MovieView extends React.Component {
+  addMovie(movie) {
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("user");
+
+    axios
+      .post(
+        `https://kpmyflix.herokuapp.com/users/${username}/movies/${movie._id}}` +
+          {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+      .then((response) => {
+        console.log(response);
+
+        alert(this.props.movie.Title + " has been added to your favorites!");
+      });
+  }
+
   render() {
     const { movie, onBackClick } = this.props;
 
@@ -27,6 +45,11 @@ export class MovieView extends React.Component {
         <Link to={`/genres/${movie.Genre.Name}`}>
           <Button variant="link">Genre</Button>
         </Link>
+
+        <button variant="link" onClick={() => this.addMovie(movie)}>
+          Add to favorites
+        </button>
+
         <button
           onClick={() => {
             onBackClick(null);
@@ -43,8 +66,8 @@ MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string,
     Description: PropTypes.string.isRequired,
-    Genre: PropTypes.string.isRequired,
-    Director: PropTypes.string.isRequired,
+    Genre: PropTypes.object.isRequired,
+    Director: PropTypes.object.isRequired,
     ImagePath: PropTypes.string.isRequired,
   }).isRequired,
   onBackClick: PropTypes.func.isRequired,

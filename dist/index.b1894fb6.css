@@ -2,11 +2,42 @@
   background-color: red !important;
   color: black !important;
 }
+
+.registerButton {
+  background-color: black !important;
+  color: Red !important;
+}
 .regbutton {
   background-color: red !important;
   color: black !important;
 }
+.director-view {
+  margin: 75px auto !important;
+}
+.genre-view {
+  margin: 75px auto !important;
+}
+.profile-view {
+  margin: 75px auto !important;
+}
+.Card {
+  height: 300px !important;
+  width: 300px !important;
+}
+
+.MovieView {
+  background-color: black;
+}
 .my-flix {
   color: steelblue;
+}
+
+.app-container {
+  background-color: black;
+  color: white;
+}
+
+.container {
+  background-color: black;
 }
 /*# sourceMappingURL=index.b1894fb6.css.map */
