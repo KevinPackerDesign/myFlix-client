@@ -12,14 +12,18 @@ export class MovieView extends React.Component {
 
     axios
       .post(
-        `https://kpmyflix.herokuapp.com/users/${username}/movies/${movie._id}}` +
-          {},
+        `https://kpmyflix.herokuapp.com/users/${username}/movies/${movie._id}`,
+        {},
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((response) => {
         console.log(response);
 
         alert(this.props.movie.Title + " has been added to your favorites!");
+      })
+
+      .catch((e) => {
+        console.log(e);
       });
   }
 
@@ -46,9 +50,9 @@ export class MovieView extends React.Component {
           <Button variant="link">Genre</Button>
         </Link>
 
-        <button variant="link" onClick={() => this.addMovie(movie)}>
+        <Button type="none" variant="link" onClick={() => this.addMovie(movie)}>
           Add to favorites
-        </button>
+        </Button>
 
         <button
           onClick={() => {

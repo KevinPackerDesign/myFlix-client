@@ -48,7 +48,7 @@ export class ProfileView extends React.Component {
       });
   }
 
-  removeFavouriteMovie() {
+  removeFavouriteMovie(movie) {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
 
@@ -198,9 +198,7 @@ export class ProfileView extends React.Component {
                               className="profile-button remove-favorite"
                               variant="danger"
                               value={movie._id}
-                              onClick={(e) =>
-                                this.removeFavouriteMovie(e, movie)
-                              }
+                              onClick={() => this.removeFavouriteMovie(movie)}
                             >
                               Remove
                             </Button>
