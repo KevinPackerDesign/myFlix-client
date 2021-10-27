@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-import { Button, Card, CardDeck, Form, Row } from "react-bootstrap";
+import { Button, Card, Form, Row } from "react-bootstrap";
 import "./profile-view.scss";
 
 export class ProfileView extends React.Component {
@@ -9,13 +9,11 @@ export class ProfileView extends React.Component {
     super();
 
     this.state = {
-      Name: null,
       Username: null,
       Password: null,
       Email: null,
       Birthdate: null,
       FavoriteMovies: [],
-      validated: null,
     };
   }
 
@@ -35,7 +33,6 @@ export class ProfileView extends React.Component {
       })
       .then((response) => {
         this.setState({
-          Name: response.data.Name,
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
@@ -66,73 +63,46 @@ export class ProfileView extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
-    // .then(() => window.location.reload());
   }
 
-  handleUpdate(e, newName, newUsername, newPassword, newEmail, newBirthdate) {
-    this.setState({
-      validated: null,
-    });
+  // updateUser(props) {
+  //   const [username, newUsername] = useState("");
 
-    const form = e.currentTarget;
-    if (form.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.setState({
-        validated: true,
-      });
-      return;
-    }
-    e.preventDefault();
+  //   const updateUsername = (e) => {
+  //     e.preventDefault();
+  //     axios
+  //       .put(`https://kpmyflix.herokuapp.com/login?Username=${username}`)
 
+  //       .then((response) => {
+  //         const data = response.data;
+  //         props.updateUser(data);
+  //       })
+  //       .catch((e) => {
+  //         console.log(e);
+  //       });
+  //   };
+  // }
+
+  updateUser() {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
+    const newUsername = " ";
 
     axios
-      .put(`https://kpmyflix.herokuapp.com/users/${username}`, {
-        headers: { Authorization: `Bearer ${token}` },
-        data: {
-          Name: newName ? newName : this.state.Name,
-          Username: newUsername ? newUsername : this.state.Username,
-          Password: newPassword ? newPassword : this.state.Password,
-          Email: newEmail ? newEmail : this.state.Email,
-          Birthdate: newBirthdate ? newBirthdate : this.state.Birthdate,
-        },
-      })
+      .put(
+        `https://kpmyflix.herokuapp.com/users/${newUsername}`,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
       .then((response) => {
-        alert("Saved Changes");
-        this.setState({
-          Name: response.data.Name,
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthdate: response.data.Birthdate,
-        });
-        localStorage.setItem("user", this.state.Username);
-        window.open(`/users/${username}`, "_self");
+        console.log(response);
+
+        alert(this.props.users.newUsername + " username updated");
       })
-      .catch(function (error) {
-        console.log(error);
+
+      .catch((e) => {
+        console.log(e);
       });
-  }
-  setName(input) {
-    this.Name = input;
-  }
-
-  setUsername(input) {
-    this.Username = input;
-  }
-
-  setPassword(input) {
-    this.Password = input;
-  }
-
-  setEmail(input) {
-    this.Email = input;
-  }
-
-  setBirthdate(input) {
-    this.Birthdate = input;
   }
 
   handleDeleteUser(e) {
@@ -149,7 +119,6 @@ export class ProfileView extends React.Component {
         localStorage.removeItem("user");
         localStorage.removeItem("token");
         alert("Your account has been deleted.");
-        window.open(`/`, "_self");
       })
       .catch((e) => {
         console.log(e);
@@ -157,16 +126,16 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { FavoriteMovies, validated } = this.state;
+    const { FavoriteMovies } = this.state;
     const { movies } = this.props;
 
     return (
       <Row className="profile-view">
         <Card className="profile-card">
-          <h2>Your Favorites Movies</h2>
+          <h2>{localStorage.getItem("user")} Favorites Movies</h2>
           <Card.Body>
             {FavoriteMovies.length === 0 && (
-              <div className="text-center">Empty.</div>
+              <div className="text-center">Empty</div>
             )}
 
             <div className="favorites-movies ">
@@ -177,111 +146,50 @@ export class ProfileView extends React.Component {
                     FavoriteMovies.find((favMovie) => favMovie === movie._id)
                   ) {
                     return (
-                      <CardDeck className="movie-card-deck">
-                        <Card
-                          className="favorites-item card-content"
-                          style={{ width: "16rem" }}
-                          key={movie._id}
+                      <Card.Body>
+                        <Card.Title className="movie-card-title">
+                          {movie.Title}
+                        </Card.Title>
+                        <Button
+                          size="sm"
+                          className="profile-button remove-favorite"
+                          variant="danger"
+                          value={movie._id}
+                          onClick={() => this.removeFavouriteMovie(movie)}
                         >
-                          <Card.Img
-                            style={{ width: "18rem" }}
-                            className="movieCard"
-                            variant="top"
-                            src={movie.ImageURL}
-                          />
-                          <Card.Body>
-                            <Card.Title className="movie-card-title">
-                              {movie.Title}
-                            </Card.Title>
-                            <Button
-                              size="sm"
-                              className="profile-button remove-favorite"
-                              variant="danger"
-                              value={movie._id}
-                              onClick={() => this.removeFavouriteMovie(movie)}
-                            >
-                              Remove
-                            </Button>
-                          </Card.Body>
-                        </Card>
-                      </CardDeck>
+                          Remove
+                        </Button>
+                      </Card.Body>
                     );
                   }
                 })}
             </div>
           </Card.Body>
 
-          <h1 className="section">Update Profile</h1>
-          <Card.Body>
-            <Form
-              noValidate
-              validated={validated}
-              className="update-form"
-              onSubmit={(e) =>
-                this.handleUpdate(
-                  e,
-                  this.Name,
-                  this.Username,
-                  this.Password,
-                  this.Email,
-                  this.Birthdate
-                )
-              }
+          <h3 className="profile-view justify-content-md-center">
+            Update Profile
+          </h3>
+          <Form>
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) => updateUsername(e.target.value)}
+            />
+            <Button
+              className="profile-view justify-content-md-center"
+              variant="danger"
+              type="submit"
+              onClick={(e) => this.updateUsername(e)}
             >
-              <Form.Group controlId="formName">
-                <Form.Label className="form-label">Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Change Name"
-                  onChange={(e) => this.setName(e.target.value)}
-                />
-              </Form.Group>
-
-              <Form.Group controlId="formBasicUsername">
-                <Form.Label className="form-label">Username</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Change Username"
-                  onChange={(e) => this.setUsername(e.target.value)}
-                />
-              </Form.Group>
-
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label className="form-label">
-                  Password<span className="required">*</span>
-                </Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="New Password"
-                  onChange={(e) => this.setPassword(e.target.value)}
-                />
-              </Form.Group>
-
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label className="form-label">Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Change Email"
-                  onChange={(e) => this.setEmail(e.target.value)}
-                />
-              </Form.Group>
-
-              <Form.Group controlId="formBasicBirthday">
-                <Form.Label className="form-label">Birthdate</Form.Label>
-                <Form.Control
-                  type="date"
-                  placeholder="Change Birthdate"
-                  onChange={(e) => this.setBirthdate(e.target.value)}
-                />
-              </Form.Group>
-
-              <Button variant="danger" type="submit">
-                Update
-              </Button>
-
+              Update User
+            </Button>
+          </Form>
+          <Card.Body className="profile-view justify-content-md-center">
+            <Form>
               <h3>Delete your Account</h3>
               <Card.Body>
                 <Button
+                  className="profile-view justify-content-md-center"
                   variant="danger"
                   onClick={(e) => this.handleDeleteUser(e)}
                 >
