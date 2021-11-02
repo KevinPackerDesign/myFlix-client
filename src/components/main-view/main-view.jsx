@@ -14,7 +14,6 @@ import { NavBar } from "../navbar-view/navbar-view";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { cloneElement } from "react";
 
 export class MainView extends React.Component {
   constructor() {
@@ -52,7 +51,7 @@ export class MainView extends React.Component {
       })
       .then((response) => {
         this.setState({ movies: response.data });
-        console.log(this.state.movies, "hello world");
+        console.log("console log of movies", this.state.movies);
       })
       .catch(function (error) {
         console.log(error);

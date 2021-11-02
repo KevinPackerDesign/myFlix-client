@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 export function RegistrationView() {
   const [username, setUsername] = useState("");
+  // as you enter a name into the field the state changes from empty to the name enter in the input.
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
@@ -28,7 +29,7 @@ export function RegistrationView() {
         alert("This user is already registered.");
         console.log("error registering the user");
       });
-    onRegistration(username);
+    // onRegistration(username);
   };
 
   return (
