@@ -69,7 +69,7 @@ export class ProfileView extends React.Component {
     // .then(() => window.location.reload());
   }
 
-  handleUpdate(e, newName, newUsername, newPassword, newEmail, newBirthdate) {
+  handleUpdate(e, newUsername, newPassword, newEmail, newBirthdate) {
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
       e.preventDefault();
@@ -88,7 +88,6 @@ export class ProfileView extends React.Component {
       .put(`https://kpmyflix.herokuapp.com/users/${username}`, {
         headers: { Authorization: `Bearer ${token}` },
         data: {
-          Name: newName ? newName : this.state.Name,
           Username: newUsername ? newUsername : this.state.Username,
           Password: newPassword ? newPassword : this.state.Password,
           Email: newEmail ? newEmail : this.state.Email,
@@ -98,7 +97,6 @@ export class ProfileView extends React.Component {
       .then((response) => {
         alert("Saved Changes");
         this.setState({
-          Name: response.data.Name,
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
@@ -110,9 +108,6 @@ export class ProfileView extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
-  }
-  setName(input) {
-    this.Name = input;
   }
 
   setUsername(input) {
@@ -218,7 +213,6 @@ export class ProfileView extends React.Component {
               onSubmit={(e) =>
                 this.handleUpdate(
                   e,
-                  this.Name,
                   this.Username,
                   this.Password,
                   this.Email,
@@ -226,15 +220,6 @@ export class ProfileView extends React.Component {
                 )
               }
             >
-              <Form.Group controlId="formName">
-                <Form.Label className="form-label">Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Change Name"
-                  onChange={(e) => this.setName(e.target.value)}
-                />
-              </Form.Group>
-
               <Form.Group controlId="formBasicUsername">
                 <Form.Label className="form-label">Username</Form.Label>
                 <Form.Control
