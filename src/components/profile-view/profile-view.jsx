@@ -9,7 +9,6 @@ export class ProfileView extends React.Component {
     super();
 
     this.state = {
-      Name: null,
       Username: null,
       Password: null,
       Email: null,
@@ -35,11 +34,10 @@ export class ProfileView extends React.Component {
       })
       .then((response) => {
         this.setState({
-          Name: response.data.Name,
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
-          Birthdate: response.data.Birthdate,
+          Birthday: response.data.Birthday,
           FavoriteMovies: response.data.FavoriteMovies,
         });
       })
@@ -48,7 +46,44 @@ export class ProfileView extends React.Component {
       });
   }
 
-  removeFavouriteMovie() {
+  updateUser(e) {
+    e.preventDefault();
+
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("user");
+
+    axios
+      .put(
+        `https://kpmyflix.herokuapp.com/users/${username}`,
+        {
+          Username: this.state.Username,
+          Password: this.state.Password,
+          Email: this.state.Email,
+          Birthday: this.state.Birthday,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((response) => {
+        this.setState({
+          Username: response.data.Username,
+          Password: response.data.Password,
+          Email: response.data.Email,
+          Birthday: response.data.Birthday,
+        });
+        console.log(this.state);
+        localStorage.setItem("user", this.state.Username);
+        const data = respose.data;
+        console.log(this.state.Username);
+        alert("Saved Changes");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  removeFavoriteMovie(movie) {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
 
@@ -67,63 +102,6 @@ export class ProfileView extends React.Component {
         console.log(error);
       });
     // .then(() => window.location.reload());
-  }
-
-  handleUpdate(e, newUsername, newPassword, newEmail, newBirthdate) {
-    const form = e.currentTarget;
-    if (form.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.setState({
-        validated: true,
-      });
-      return;
-    }
-    e.preventDefault();
-
-    const token = localStorage.getItem("token");
-    const username = localStorage.getItem("user");
-
-    axios
-      .put(`https://kpmyflix.herokuapp.com/users/${username}`, {
-        headers: { Authorization: `Bearer ${token}` },
-        data: {
-          Username: newUsername ? newUsername : this.state.Username,
-          Password: newPassword ? newPassword : this.state.Password,
-          Email: newEmail ? newEmail : this.state.Email,
-          Birthdate: newBirthdate ? newBirthdate : this.state.Birthdate,
-        },
-      })
-      .then((response) => {
-        alert("Saved Changes");
-        this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthdate: response.data.Birthdate,
-        });
-        localStorage.setItem("user", this.state.Username);
-        window.open(`/users/${username}`, "_self");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
-  setUsername(input) {
-    this.Username = input;
-  }
-
-  setPassword(input) {
-    this.Password = input;
-  }
-
-  setEmail(input) {
-    this.Email = input;
-  }
-
-  setBirthdate(input) {
-    this.Birthdate = input;
   }
 
   handleDeleteUser(e) {
@@ -145,6 +123,22 @@ export class ProfileView extends React.Component {
       .catch((e) => {
         console.log(e);
       });
+  }
+
+  setUsername(input) {
+    this.Username = input;
+  }
+
+  setPassword(input) {
+    this.Password = input;
+  }
+
+  setEmail(input) {
+    this.Email = input;
+  }
+
+  setBirthday(input) {
+    this.Birthday = input;
   }
 
   render() {
@@ -189,9 +183,7 @@ export class ProfileView extends React.Component {
                               className="profile-button remove-favorite"
                               variant="danger"
                               value={movie._id}
-                              onClick={(e) =>
-                                this.removeFavouriteMovie(e, movie)
-                              }
+                              onClick={(e) => this.removeFavoriteMovie(movie)}
                             >
                               Remove
                             </Button>
@@ -210,15 +202,7 @@ export class ProfileView extends React.Component {
               noValidate
               validated={validated}
               className="update-form"
-              onSubmit={(e) =>
-                this.handleUpdate(
-                  e,
-                  this.Username,
-                  this.Password,
-                  this.Email,
-                  this.Birthdate
-                )
-              }
+              onSubmit={(e) => this.handleUpdate(e)}
             >
               <Form.Group controlId="formBasicUsername">
                 <Form.Label className="form-label">Username</Form.Label>
@@ -250,11 +234,11 @@ export class ProfileView extends React.Component {
               </Form.Group>
 
               <Form.Group controlId="formBasicBirthday">
-                <Form.Label className="form-label">Birthdate</Form.Label>
+                <Form.Label className="form-label">Birthday</Form.Label>
                 <Form.Control
                   type="date"
-                  placeholder="Change Birthdate"
-                  onChange={(e) => this.setBirthdate(e.target.value)}
+                  placeholder="Change Birthday"
+                  onChange={(e) => this.setBirthday(e.target.value)}
                 />
               </Form.Group>
 
@@ -289,6 +273,6 @@ ProfileView.propTypes = {
     ),
     Username: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
-    Birthdate: PropTypes.string,
+    Birthday: PropTypes.string,
   }),
 };
