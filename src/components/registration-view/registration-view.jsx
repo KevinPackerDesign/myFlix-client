@@ -29,7 +29,6 @@ export function RegistrationView() {
         alert("This user is already registered.");
         console.log("error registering the user");
       });
-    // onRegistration(username);
   };
 
   return (

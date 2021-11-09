@@ -12,9 +12,8 @@ export class ProfileView extends React.Component {
       Username: null,
       Password: null,
       Email: null,
-      Birthdate: null,
+      Birthday: null,
       FavoriteMovies: [],
-      validated: null,
     };
   }
 
@@ -40,17 +39,16 @@ export class ProfileView extends React.Component {
           Birthday: response.data.Birthday,
           FavoriteMovies: response.data.FavoriteMovies,
         });
+        console.log(this.state);
       })
       .catch(function (error) {
         console.log(error);
       });
   }
 
-  updateUser(e) {
-    e.preventDefault();
-
-    const token = localStorage.getItem("token");
+  updateUser() {
     const username = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
 
     axios
       .put(
@@ -61,26 +59,15 @@ export class ProfileView extends React.Component {
           Email: this.state.Email,
           Birthday: this.state.Birthday,
         },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
+        { headers: { Authorization: `Bearer ${token}` } }
       )
-      .then((response) => {
-        this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
-        });
-        console.log(this.state);
+      .then(() => {
         localStorage.setItem("user", this.state.Username);
-        const data = respose.data;
-        console.log(this.state.Username);
-        alert("Saved Changes");
       })
       .catch(function (error) {
         console.log(error);
       });
+    console.log(this.state);
   }
 
   removeFavoriteMovie(movie) {
@@ -101,7 +88,6 @@ export class ProfileView extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
-    // .then(() => window.location.reload());
   }
 
   handleDeleteUser(e) {
@@ -125,24 +111,8 @@ export class ProfileView extends React.Component {
       });
   }
 
-  setUsername(input) {
-    this.Username = input;
-  }
-
-  setPassword(input) {
-    this.Password = input;
-  }
-
-  setEmail(input) {
-    this.Email = input;
-  }
-
-  setBirthday(input) {
-    this.Birthday = input;
-  }
-
   render() {
-    const { FavoriteMovies, validated } = this.state;
+    const { FavoriteMovies } = this.state;
     const { movies } = this.props;
 
     return (
@@ -198,64 +168,61 @@ export class ProfileView extends React.Component {
 
           <h1 className="section">Update Profile</h1>
           <Card.Body>
-            <Form
-              noValidate
-              validated={validated}
-              className="update-form"
-              onSubmit={(e) => this.handleUpdate(e)}
+            <Form.Group controlId="formBasicUsername">
+              <Form.Label className="form-label">Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Change Username"
+                onChange={(e) => this.setState({ Username: e.target.value })}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label className="form-label">
+                Password<span className="required">*</span>
+              </Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="New Password"
+                onChange={(e) => this.setState({ Password: e.target.value })}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label className="form-label">Email</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Change Email"
+                onChange={(e) => this.setState({ Email: e.target.value })}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicBirthday">
+              <Form.Label className="form-label">Birthday</Form.Label>
+              <Form.Control
+                type="date"
+                placeholder="Change Birthday"
+                onChange={(e) => this.setState({ Birthday: e.target.value })}
+              />
+            </Form.Group>
+
+            <Button
+              variant="danger"
+              type="submit"
+              onClick={() => this.updateUser()}
             >
-              <Form.Group controlId="formBasicUsername">
-                <Form.Label className="form-label">Username</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Change Username"
-                  onChange={(e) => this.setUsername(e.target.value)}
-                />
-              </Form.Group>
+              Update
+            </Button>
 
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label className="form-label">
-                  Password<span className="required">*</span>
-                </Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="New Password"
-                  onChange={(e) => this.setPassword(e.target.value)}
-                />
-              </Form.Group>
-
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label className="form-label">Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Change Email"
-                  onChange={(e) => this.setEmail(e.target.value)}
-                />
-              </Form.Group>
-
-              <Form.Group controlId="formBasicBirthday">
-                <Form.Label className="form-label">Birthday</Form.Label>
-                <Form.Control
-                  type="date"
-                  placeholder="Change Birthday"
-                  onChange={(e) => this.setBirthday(e.target.value)}
-                />
-              </Form.Group>
-
-              <Button variant="danger" type="submit">
-                Update
+            <h3>Delete your Account</h3>
+            <Card.Body>
+              <Button
+                variant="danger"
+                onClick={(e) => this.handleDeleteUser(e)}
+              >
+                Delete Account
               </Button>
-
-              <h3>Delete your Account</h3>
-              <Card.Body>
-                <Button
-                  variant="danger"
-                  onClick={(e) => this.handleDeleteUser(e)}
-                >
-                  Delete Account
-                </Button>
-              </Card.Body>
-            </Form>
+            </Card.Body>
           </Card.Body>
         </Card>
       </Row>
