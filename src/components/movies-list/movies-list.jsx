@@ -25,7 +25,7 @@ function MoviesList(props) {
 
   return (
     <>
-      <Col md={12} style={{ margin: "1em " }}>
+      <Col md={12} style={{ margin: "4em " }}>
         <VisibilityFilterInput visibilityFilter={visibilityFilter} />
       </Col>
       {filteredMovies.map((m) => (

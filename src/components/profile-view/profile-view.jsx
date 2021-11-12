@@ -118,7 +118,7 @@ export class ProfileView extends React.Component {
     return (
       <Row className="profile-view">
         <Card className="profile-card">
-          <h2>Your Favorites Movies</h2>
+          <h2>{this.state.Username} Favorites Movies</h2>
           <Card.Body>
             {FavoriteMovies.length === 0 && (
               <div className="text-center">Empty.</div>
@@ -168,6 +168,12 @@ export class ProfileView extends React.Component {
 
           <h1 className="section">Update Profile</h1>
           <Card.Body>
+            <p>
+              <b>Current user information</b>
+            </p>
+            <p>{this.state.Username}</p>
+            <p>{this.state.Email}</p>
+            <p>{this.state.Birthday}</p>
             <Form.Group controlId="formBasicUsername">
               <Form.Label className="form-label">Username</Form.Label>
               <Form.Control

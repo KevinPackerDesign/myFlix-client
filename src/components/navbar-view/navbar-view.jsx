@@ -41,13 +41,6 @@ export class NavBar extends React.Component {
               Log Out
             </Nav.Link>
           </Nav>
-          <Form inline>
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="setFilter"
-            />
-          </Form>
         </Navbar.Collapse>
       </Navbar>
     );

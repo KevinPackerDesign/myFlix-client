@@ -13,6 +13,9 @@
 .genre-view {
   margin: 75px auto !important;
 }
+.profile-view {
+  margin: 75px auto !important;
+}
 .Card {
   height: 300px !important;
   width: 300px !important;
@@ -20,9 +23,6 @@
 
 .MovieView {
   background-color: black;
-}
-.profile-view {
-  margin: 75px auto !important;
 }
 .my-flix {
   color: steelblue;
