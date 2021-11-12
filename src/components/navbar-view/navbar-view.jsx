@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { VisibilityFilterInput } from "../visibility-filter-input/visibility-filter-input";
 
 import { Navbar, Nav, Form, FormControl } from "react-bootstrap";
 
@@ -41,7 +42,11 @@ export class NavBar extends React.Component {
             </Nav.Link>
           </Nav>
           <Form inline>
-            <FormControl type="text" placeholder="Search" />
+            <FormControl
+              type="search"
+              placeholder="Search"
+              className="setFilter"
+            />
           </Form>
         </Navbar.Collapse>
       </Navbar>
