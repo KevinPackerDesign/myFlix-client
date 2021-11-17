@@ -2,6 +2,14 @@ import React from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { Button, Card, CardDeck, Form, Row } from "react-bootstrap";
+import { connect } from "react-redux";
+import {
+  updateUsername,
+  updatePassword,
+  updateEmail,
+  updateBirthday,
+} from "../../actions/actions";
+
 import "./profile-view.scss";
 
 export class ProfileView extends React.Component {
@@ -9,8 +17,6 @@ export class ProfileView extends React.Component {
     super();
 
     this.state = {
-      Username: null,
-      Password: null,
       Email: null,
       Birthday: null,
       FavoriteMovies: [],
@@ -54,20 +60,19 @@ export class ProfileView extends React.Component {
       .put(
         `https://kpmyflix.herokuapp.com/users/${username}`,
         {
-          Username: this.state.Username,
-          Password: this.state.Password,
-          Email: this.state.Email,
-          Birthday: this.state.Birthday,
+          Username: this.props.updateUsername,
+          Password: this.props.updatePassword,
+          Email: this.props.updateEmail,
+          Birthday: this.props.updateBirthday,
         },
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then(() => {
-        localStorage.setItem("user", this.state.Username);
+        localStorage.setItem("user", this.props.Username);
       })
       .catch(function (error) {
         console.log(error);
       });
-    console.log(this.state);
   }
 
   removeFavoriteMovie(movie) {
@@ -171,15 +176,15 @@ export class ProfileView extends React.Component {
             <p>
               <b>Current user information</b>
             </p>
-            <p>{this.state.Username}</p>
-            <p>{this.state.Email}</p>
-            <p>{this.state.Birthday}</p>
+            <p>{this.props.Username}</p>
+            <p>{this.props.Email}</p>
+            <p>{this.props.Birthday}</p>
             <Form.Group controlId="formBasicUsername">
               <Form.Label className="form-label">Username</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Change Username"
-                onChange={(e) => this.setState({ Username: e.target.value })}
+                onChange={(e) => this.props.updateUsername(e.target.value)}
               />
             </Form.Group>
 
@@ -190,7 +195,7 @@ export class ProfileView extends React.Component {
               <Form.Control
                 type="password"
                 placeholder="New Password"
-                onChange={(e) => this.setState({ Password: e.target.value })}
+                onChange={(e) => this.props.updatePassword(e.target.value)}
               />
             </Form.Group>
 
@@ -199,7 +204,7 @@ export class ProfileView extends React.Component {
               <Form.Control
                 type="email"
                 placeholder="Change Email"
-                onChange={(e) => this.setState({ Email: e.target.value })}
+                onChange={(e) => this.props.updateEmail(e.target.value)}
               />
             </Form.Group>
 
@@ -208,7 +213,7 @@ export class ProfileView extends React.Component {
               <Form.Control
                 type="date"
                 placeholder="Change Birthday"
-                onChange={(e) => this.setState({ Birthday: e.target.value })}
+                onChange={(e) => this.props.updateBirthday(e.target.value)}
               />
             </Form.Group>
 
@@ -249,3 +254,19 @@ ProfileView.propTypes = {
     Birthday: PropTypes.string,
   }),
 };
+
+let mapStateToProps = (state) => {
+  return {
+    updateUsername: state.Username,
+    updatePassword: state.Password,
+    updateEmail: state.Email,
+    updateBirthday: state.Birthday,
+  };
+};
+
+export default connect(mapStateToProps, {
+  updateUsername,
+  updatePassword,
+  updateEmail,
+  updateBirthday,
+})(ProfileView);

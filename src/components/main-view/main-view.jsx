@@ -6,10 +6,11 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { setUsers } from "../../actions/actions";
 import { setMovies } from "../../actions/actions";
+
 import MoviesList from "../movies-list/movies-list";
 
 import { LoginView } from "../login-view/login-view";
-// import { MovieCard } from "../movie-card/movie-card";
+
 import { MovieView } from "../movie-view/movie-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
@@ -24,7 +25,7 @@ export class MainView extends React.Component {
   componentDidMount() {
     let accessToken = localStorage.getItem("token");
     if (accessToken !== null) {
-      // this.props.setUsers(localStorage.getItem("user"));
+      this.props.setUsers(localStorage.getItem("user"));
       this.getMovies(accessToken);
     }
   }
@@ -43,7 +44,7 @@ export class MainView extends React.Component {
       })
       .then((response) => {
         this.props.setMovies(response.data);
-        console.log("console log of movies", this.state.movies);
+        console.log("console log of movies");
       })
       .catch(function (error) {
         console.log(error);
@@ -74,9 +75,7 @@ export class MainView extends React.Component {
               if (!user)
                 return (
                   <Col>
-                    <LoginView
-                      onLoggedIn={(username) => this.onLoggedIn(username)}
-                    />
+                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                   </Col>
                 );
               if (movies.length === 0) return <div className="main-view" />;
@@ -180,10 +179,13 @@ export class MainView extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-  return { movies: state.movies, user: state.user };
+  return { movies: state.movies, user: state.users };
 };
 
-export default connect(mapStateToProps, { setMovies, setUsers })(MainView);
+export default connect(mapStateToProps, {
+  setMovies,
+  setUsers,
+})(MainView);
 
 // to add something like a button into this you can wrap it all in another <div> or use <React.Fragment> or use the short hand<> </>
 //testing git push
