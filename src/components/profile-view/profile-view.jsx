@@ -17,8 +17,6 @@ export class ProfileView extends React.Component {
     super();
 
     this.state = {
-      Email: null,
-      Birthday: null,
       FavoriteMovies: [],
     };
   }
@@ -123,7 +121,7 @@ export class ProfileView extends React.Component {
     return (
       <Row className="profile-view">
         <Card className="profile-card">
-          <h2>{this.state.Username} Favorites Movies</h2>
+          <h2>{this.props.Username} Favorites Movies</h2>
           <Card.Body>
             {FavoriteMovies.length === 0 && (
               <div className="text-center">Empty.</div>
