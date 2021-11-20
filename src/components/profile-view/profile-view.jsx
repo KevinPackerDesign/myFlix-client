@@ -13,14 +13,6 @@ import {
 import "./profile-view.scss";
 
 export class ProfileView extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      FavoriteMovies: [],
-    };
-  }
-
   componentDidMount() {
     const accessToken = localStorage.getItem("token");
     if (accessToken !== null) {
@@ -36,14 +28,13 @@ export class ProfileView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        this.setState({
+        this.props.updateUsername({
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
           Birthday: response.data.Birthday,
           FavoriteMovies: response.data.FavoriteMovies,
         });
-        console.log(this.state);
       })
       .catch(function (error) {
         console.log(error);
@@ -115,7 +106,7 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { FavoriteMovies } = this.state;
+    const { FavoriteMovies } = this.props;
     const { movies } = this.props;
 
     return (
