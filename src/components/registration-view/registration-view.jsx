@@ -74,7 +74,3 @@ export function RegistrationView() {
     </form>
   );
 }
-
-RegistrationView.propTypes = {
-  onRegistration: PropTypes.func.isRequired,
-};
