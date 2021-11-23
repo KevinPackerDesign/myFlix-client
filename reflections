@@ -1,0 +1,11 @@
+This project is to build an app that shows information about movies ie the Title, an image, director, and genre.
+
+You should be able to login and have a user profile page.
+
+My role was to create the app from stratch, in the last achievement I worked on the back end to host all the movies and the users information. In this section I worked on the frontend, or the user interface. It displays the movies information and the user info.
+
+I attempted to follow the course and build a the app as directed. When I hit a hard part I attempted to figure it out on my own, when I was unable to figure it out I was able to reach out to my mentor. If I could do anything differently I would document my project better and work on smaller sections making sure that they worked 100% before moving on. I learned that patience and pratice make things easier.
+
+In this app I used Java, React.js, redux code.
+I also used Mongo.db for hosting, Postman for testing. All written on VSstudio, with multiple pluggins.
+
